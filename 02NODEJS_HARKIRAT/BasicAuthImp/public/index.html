@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+        async function signUp(){
+            const username = document.getElementById("singup-username").value;
+            const password = document.getElementById("singup-password").value;
+
+            await axios.post('/signup',{
+                username: username,
+                password: password
+            })
+            alert("Sign Up Successful");
+        }
+
+         async function signin(){
+        const username = document.getElementById("signin-username").value;
+        const password = document.getElementById("signin-password").value;
+        const response = await axios.post('/signin',{
+            username: username,
+            password: password
+        })
+
+        localStorage.setItem("token", response.data.token);
+        alert("Sign In Successful");
+    }
+   
+        function logout(){
+            localStorage.removeItem("token");
+            alert("Logged Out Successfully");
+        }
+     async function userInfo(){
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("You need to sign in first.");
+            return;
+        }
+        const response = await axios.get('/userInfo',{
+            headers: {
+                token: token
+            }
+        });
+
+        document.getElementById("main").innerText = JSON.stringify(response.data);
+    }
+
+   </script>
+
+   
+</head>
+<body>
+    <div id="main">
+        <div>
+        Sign UP
+        <input type="text" placeholder="Username" id="singup-username">
+        <input type="text" placeholder="Password" id="singup-password">
+        <button onclick="signUp()">Sign Up</button>
+    </div>
+    <div>
+        Sign In
+        <input type="text" placeholder="Username" id="signin-username">
+        <input type="text" placeholder="Password" id="signin-password">
+        <button onclick="signin()">Sign In</button>
+    </div>
+    <div>
+        <h2>Welcome to the Basic Auth Example</h2>
+        <p>Please sign up or sign in to continue.</p>   
+
+
+    </div>
+    <div>
+        <button onclick="userInfo()">Get User Info</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+</body>
+</html>

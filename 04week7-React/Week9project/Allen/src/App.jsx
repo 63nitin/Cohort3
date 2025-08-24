@@ -1,0 +1,48 @@
+import React, { useState } from "react";
+import PostComponent from "./componets/post";
+
+
+export default function App(){
+
+  // const [posts, setPosts] = useState([]);
+  
+  // const postComponents = posts.map(post => <PostComponent
+    
+  //    name={post.name}
+  //    subtitle={post.subtitle}
+  //    time={post.time}
+  //    image={post.image}
+  //    description={post.description}
+  //   />
+  // )
+
+  
+
+  function addPost(){
+    setPosts([...posts, {
+      name: "Nitin",
+      subtitle: "1000 followers",
+      time: "2m ago",
+      description: "Hello i am nitin aim for a good package!",
+      image: "data:image/png;base64,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"
+    }])
+  }
+
+  return(
+    <div style={{
+      background: "#dfe6e9",
+      height: "100vh",
+    }}>
+    
+    <button onClick={addPost}>
+      Add Post
+    </button>
+    <div style={{display: "flex", justifyContent:"center"}}>
+      <div>
+        {postComponents}
+      </div>
+    </div>
+
+    </div>
+  )
+}

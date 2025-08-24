@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content:center ;
+            background-color: aqua;   
+        }
+        .button{
+            margin-top: 600px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div> 
+        <input type="text">
+        <button onclick="targetColor()">Change</button>
+    </div>
+
+    <div class="button">
+
+        <button style="background-color: red;" onclick="colorChange('red')">Red</button>
+        <button style="background-color: green;" onclick="colorChange('green')">Green</button>
+        <button style="background-color: black;" onclick="colorChange('black')">Black</button>
+        <button style="background-color: yellow;" onclick="colorChange('yellow')">Yellow</button>
+        <button style="background-color: olivedrab;" onclick="colorChange('olivedrab')">Olivedrab</button>
+    </div>
+    <script>
+        function colorChange(str){
+             if(str == 'red'){
+                document.body.style.backgroundColor = "red";
+              } else if(str == "yellow"){
+                document.body.style.backgroundColor = "yellow";
+              } else if(str == "green"){
+                document.body.style.backgroundColor = "green";
+
+              }  else if(str == "olivedrab"){
+                document.body.style.backgroundColor = "olivedrab";
+
+              }  else if(str == "black"){
+                document.body.style.backgroundColor = "black";
+
+              }   
+        }
+
+        function targetColor(){
+            const color = document.querySelector('input').value.toLowerCase();
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>

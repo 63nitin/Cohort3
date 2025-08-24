@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To Do</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      min-height: 100vh;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .todo-wrapper {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .todo-input {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .todo-input input {
+      flex: 1;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .todo-input input:focus {
+      border-color: #f8b500;
+      box-shadow: 0 0 5px rgba(248, 181, 0, 0.5);
+    }
+
+    .todo-input button {
+      padding: 10px 16px;
+      font-size: 1rem;
+      background: #f8b500;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .todo-input button:hover {
+      background: #d99900;
+    }
+
+    .todo-list div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      border-radius: 8px;
+    }
+
+    .todo-list span {
+      font-size: 1.1rem;
+    }
+
+    .todo-list button {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .todo-list button:hover {
+      background: #e64949;
+    }
+  </style>
+</head>
+<body>
+  <h1>To Do</h1>
+  <div class="todo-wrapper">
+    <div class="todo-input">
+      <input type="text" placeholder="Add todo...">
+      <button onclick="addTodo()">Add</button>
+    </div>
+    <div class="todo-list">
+      <!-- Todos will be added here -->
+    </div>
+  </div>
+
+  <script>
+    let index = 0;
+    function addTodo(){
+        const value = document.querySelector('input').value;
+        const newTodoEle = document.createElement("div");
+        const spanEle = document.createElement("span");
+        const buttonEle = document.createElement("button");
+        spanEle.innerHTML = value;
+        buttonEle.innerHTML = "Delete";
+        newTodoEle.appendChild(spanEle);
+        newTodoEle.appendChild(buttonEle);
+        document.querySelector('.todo-list').appendChild(newTodoEle);
+
+        document.querySelector('input').value = "";
+    }
+
+    function Delete(){
+        // No logic provided; keeping untouched as requested
+    }
+  </script>
+</body>
+</html>

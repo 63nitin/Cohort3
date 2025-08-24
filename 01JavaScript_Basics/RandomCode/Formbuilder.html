@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colorful Form Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #83a4d4, #b6fbff);
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      border-radius: 16px;
+    }
+
+    .container > div {
+      flex: 1;
+      padding: 20px;
+      background: #fefefe;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .container > div:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #333;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    select:focus, input:focus {
+      border-color: #5e9cff;
+      box-shadow: 0 0 5px rgba(94, 156, 255, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+    }
+
+    #preview {
+      background: #fff3cd;
+      border: 2px dashed #ffc107;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Colorful Form Builder</h1>
+  <div class="container">
+    <div>
+      <h2>📝 Form Input</h2>
+      <select id="typeSelect">
+        <option value="input">Input</option>
+        <option value="password">Password</option>
+        <option value="checkbox">Checkbox</option>
+      </select>
+      <input id="nitin" type="text" placeholder="Enter Label">
+      <button onclick="generateForm()">Generate</button>
+    </div>
+    <div id="preview">
+      <h2>👁️ Preview</h2>
+      <!-- Form elements will be added here -->
+    </div>
+  </div>
+
+  <script src="form.js">
+   
+  </script>
+</body>
+</html>
